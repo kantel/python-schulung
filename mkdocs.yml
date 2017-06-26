@@ -1,0 +1,22 @@
+site_name: Python-Schulung
+theme: readthedocs
+
+pages:
+- Home: "index.md"
+- Hallo Welt: "hallowelt.md"
+- Entwicklungsumgebungen: "ide.md"
+- Which Python: "whichpython.md"
+
+markdown_extensions:
+- footnotes
+- admonition
+
+- smarty:
+    smart_quotes: False
+- pymdownx.tasklist
+
+site_dir: "/Applications/MAMP/htdocs/pythonschulung"
+
+extra_css: [css/user.css]
+
+extra_javascript: ["http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"]
