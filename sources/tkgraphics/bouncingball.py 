@@ -1,31 +1,43 @@
 import tkinter as tk
+import sys
 
 root = tk.Tk()
-root.title("Animation 01")
+root.title("Bouncing Ball")
 cw = 250            # Canvas width
-ch = 130            # Canvas height
+ch = 150            # Canvas height
 
 pos_x = 1
 pos_y = 1
-shift_x = 3
-shift_y = 2
-ball_width = 12
-ball_height = 12
-color = "red"
+shift_x = 1
+shift_y = 1
+ball_width = 16
+ball_height = 16
+color = "firebrick"
 
-millisecs = 200         # 15
+millisecs = 10
+
+def detect_wall_collision():
+    global pos_x, pos_y, shift_x, shift_y, cw, ch
+    if pos_x + ball_width//2 > cw or pos_x < 0:
+        shift_x = -shift_x
+    if pos_y + ball_height//2 > ch or pos_y < 0:
+        shift_y = -shift_y
+
 
 canvas1 = tk.Canvas(root, width = cw, height = ch, background = "white")
 canvas1.grid(row = 0, column = 0)
 
-for i in range(1, 50):
+for i in range(1, 1000):
     pos_x += shift_x
     pos_y += shift_y
+
     canvas1.create_oval(pos_x, pos_y, pos_x + ball_width, pos_y + ball_height, fill = color)    # Create
+    detect_wall_collision()
     canvas1.update()            # Update
     canvas1.after(millisecs)    # Pause
     canvas1.delete(tk.ALL)      # Erase
 
 print("I did it, Babe!")
+sys.exit()
 
 root.mainloop()
