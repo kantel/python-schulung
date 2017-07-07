@@ -5,4 +5,4 @@
 Python für absolute Anfänger …
 
 
-Jetzt auch mit Sternchen!
+Jetzt auch mit/ohne Sternchen!
