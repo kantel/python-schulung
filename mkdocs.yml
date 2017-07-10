@@ -6,6 +6,7 @@ pages:
 - Hallo Welt: "hallowelt.md"
 - Entwicklungsumgebungen: "ide.md"
 - Which Python: "whichpython.md"
+- Hallo Tkinter: "hellotk.md"
 
 markdown_extensions:
 - footnotes
