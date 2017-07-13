@@ -1,5 +1,4 @@
-<!-- $theme: default -->
-<!-- $size: 16:9 --> 
+<!-- $theme: gaia -->
 
 ![](images/python-verwirrt.png)
 
