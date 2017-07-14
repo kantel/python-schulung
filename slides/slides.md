@@ -32,3 +32,39 @@ print(u"Hallo Jörg!")
 - Das System-Python wird auch vom OS genutzt
 - Daher besser nicht anrühren
 - Anaconda-Python ist die Lösung für (fast) alles
+
+---
+
+# In Python programmieren
+
+- Im Interpreter (REPL)
+- Skzzieren (wie in Processing)
+- IDE
+
+---
+
+# Python Interpreter
+
+- Terminal
+- IPython
+- IDLE
+
+---
+
+# IPython
+
+- Terminal
+- qtconsole
+- Jupyter Notebook
+
+---
+
+# Skizzen mit TextMate und Atom
+
+---
+
+# IDEs
+
+- PyCharm Community Edition
+- Spyder
+- Rodeo
