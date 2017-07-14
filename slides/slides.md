@@ -8,14 +8,14 @@
 
 ---
 
-# Hallo Welt
+# Hallo Welt 👋
 
 ```python
 print("Hallo Jörg!")
 ```
 
-- Man beachte, daß Python 3 UTF-8-fest ist. 
-- In Python 2.7 sähe das Skript folgendermaßen aus:
+- Man beachte, daß Python3 UTF-8-fest ist. 
+- In Python 2.7 müßte das Skript folgendermaßen aussehen:
 
 ```python
 # coding=utf-8
