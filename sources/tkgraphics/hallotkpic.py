@@ -14,6 +14,6 @@ print(os.getcwd())
 image = Image.open(path)
 schlange = ImageTk.PhotoImage(image)
 canvas.create_image(cw//2, ch//2, anchor = tk.CENTER, image = schlange)
-canvas.update
+canvas.update()
 
 root.mainloop()
