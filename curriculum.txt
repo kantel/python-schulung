@@ -1,0 +1,19 @@
+Python-Schulung
+
+Liebe Kolleginnen und Kollegen,
+
+da ich die Meinung vertrete, daß man/frau programmieren lernen sollte, um nicht programmiert zu werden 😜, habe ich (ursprünglich für die Mitarbeiter in der EDV gedacht) eine Einführung in die Programmiersprache Python vorbereitet, die ich nun als Schulung für alle Interessierten anbieten möchte. Es ist wirklich nur eine Einführung und nicht für Spezialisten gedacht, die sich in Spezialthemen weiterbilden möchten (dazu weiß ich selber zu wenig). Die Schulung ist in sechs Einheiten gegliedert, die jeweils zwei bis drei Stunden dauern und etwa im wöchentlichen Abstand durchgeführt werden sollen. Die Gliederung habe ich in etwa so geplant:
+
+Einheit 1, Hallo Python-Welt: Was ist Python und warum sollte man Python lernen? Eine Übersicht über das Python-Universum und die diversen Werkzeuge, Bibliotheken und Implementierungen. Python 2 oder Python 3? (die Antwort ist: (meistens) Python 3.) Programmierstile: Interpreter (IPython!), Sketching oder IDE? Installation von Anaconda-Python und TextMate (falls noch nicht vorhanden). Konfiguration von TextMate als Entwicklungsumgebung für Python.
+
+Einheit 2 für erste Schritte in die Programmierung: Variablen, einfache Datentypen und Operatoren. Programmfluß: Wiederholungen und Verzweigungen. Komplexere Datentypen wie Listen, Tupel und Dictionairies. Lesen und Schreiben aus und in Dateien (Text, CSV, XML und JSON).
+
+Einheit 3 führt in die GUI- und Graphik-Programmierung (mit Tkinter) ein: Button, Eingabefelder etc. Bilder und Bildmanipulationen. Animationen und interaktive Programme.
+
+Einheit 4 stellt Module, Objekte und Klassen anhand eines kleinen Computerspiels auf Basis von Pyglet und cocos2d vor. Kurze Übersicht über die Python-Standard-Bibliothek und vielverwendete, andere Bibliotheken.
+
+Einheit 5 ist ein Einstieg in das wissenschaftliche Rechnen mit Python: Numpy, SciPy und die Matplotlib. »Reproduzierbare Forschung« mit den Jupyter Notebooks und erste Schritte mit dem Natural Language Toolkit.
+
+Einheit 6 gibt Ausblicke und zeigt (mögliche) nächste Schritte: Python und das Web (Django, Flask etc.), Python und Datenbanken (wie mySQL und SQLite), Datamining mit Python und pandas, Python und die Methoden der künstlichen Intelligenz (TensorFlow, scikit-learn).
+
+Falls jemand von Euch/von Ihnen Interesse hat, an dieser Schulung teilzunehmen, bitte ich um eine kurze Email an mich. Geplant ist, die Schulung im wöchentlichen Abstand entweder Montags, Dienstags oder Donnerstags um 14:00 Uhr abzuhalten, bei einer größeren Anzahl von Interessenten kann der Kurs auch geteilt werden. Kurssprache ist deutsch (sorry), Fragen an mich können aber auch auf englisch gestellt werden.
