@@ -24,6 +24,23 @@ print(u"Hallo Jörg!")
 ```
 ---
 
+# Was ist Python?
+
+## Und warum sollte man Python lernen?
+
+---
+
+# Das Python Universum
+
+- CPython (Referenz-Implementierung
+- Jython (Python in Java)
+
+---
+
+# Python 2 oder Python 3?
+
+---
+
 ![](images/anaconda-s.jpg)
 
 # Welches Python?
@@ -68,3 +85,14 @@ print(u"Hallo Jörg!")
 - PyCharm Community Edition
 - Spyder
 - Rodeo
+
+---
+
+# Installationen für diesen Kurs
+
+- Anaconda-Python
+- TextMate
+
+---
+
+# TextMate-Anpassungen
