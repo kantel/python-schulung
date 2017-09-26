@@ -26,5 +26,5 @@ while True:
     canvas.after(cycle_period)
     canvas.delete(tk.ALL)
 
-root.protocol("WM_DELETE_WINDOW", die)
+# root.protocol("WM_DELETE_WINDOW", die)
 root.mainloop()

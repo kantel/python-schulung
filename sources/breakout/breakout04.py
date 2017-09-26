@@ -1,0 +1,8 @@
+import tkinter as tk
+from gameworld04 import World
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    root.title("Break Out!")
+    world = World(root)
+    world.mainloop()
