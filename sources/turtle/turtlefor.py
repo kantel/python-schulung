@@ -8,11 +8,9 @@ alex = t.Turtle()
 alex.pencolor("black")
 alex.pensize(2)
 
-i = 0
 for i in range(4):
     alex.left(90)
     alex.forward(100)
-    i += 1
 
 print("Schildkröte Alex sagt: »I did it, Babe!« 🐢")
 
