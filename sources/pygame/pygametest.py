@@ -6,8 +6,7 @@ import pygame
 def run_game():
     pygame.init()
     screen = pygame.display.set_mode((400, 400))
-    title = "Hallo Jörg!"
-    pygame.display.set_caption(title)
+    pygame.display.set_caption("Hallo Jörg! 😇")
     
     while True:
         
