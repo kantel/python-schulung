@@ -159,3 +159,4 @@ Folgende Bücher un Webseiten haben mir beim Einstieg in die Schildkrötenwelt g
 - Mitchel Resnick: *[Turtles, Termites, and Traffic Jam](https://www.amazon.de/Turtles-Termites-Traffic-Jams-Explorations/dp/0262680939/ref=as_li_ss_tl?ie=UTF8&qid=1509985968&sr=8-1&keywords=Turtles+Termites+traffic+jam&linkCode=ll1&tag=derschockwell-21&linkId=fa5582ac4e8d5841581ddd46dde8bf64)*, Cambrigde, MA (MIT Press) 1994 (Paperback 1997) ist **das** Buch zu StarLogo, Turtles, autonomen Agenten, massiv-parallele Simulationen und Dezentralisierung.
 
 
+
