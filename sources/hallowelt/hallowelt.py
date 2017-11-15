@@ -1,1 +1,4 @@
-print("Hallo Jörg 😎")
+import sys
+print(sys.version)
+
+print("Hallo Jörg")
