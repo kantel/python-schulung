@@ -4,9 +4,11 @@ Die [Koch-Kurve](https://de.wikipedia.org/wiki/Koch-Kurve) oder Kochsche Kurve i
 
 [![Koch-Insel oder Kochsche Schneeflocke](images/kochisland.jpg)](https://www.flickr.com/photos/schockwellenreiter/38168450521/)
 
-Man kann die Kurve anschaulich mittels eines iterativen Prozesses konstruieren Zu Beginn besteht die Kurve aus einem einzigen Streckenstück. Die Iteration besteht nun darin, daß dieser Streckenabschnitt durch einen anderen, aus vier gleich langen Strecken bestehenden Streckenabschnitt ersetzt wird, der wie folgt aufgebaut ist: Strecke -- 60° Winkel -- Strecke -- 120° Winkel (in der Gegenrichtung) -- Strecke – 60° Winkel -- Strecke. Jeder der vier neuen Streckenabschnitte hat 1/3 der Länge des ursprünglichen Streckenabschnitts. Im nächsten Schritt wird jeder der vier Streckenabschnitte durch einen Streckenabschnitt der oberen Art ersetzt. Diese Iteration wird nun beliebig oft wiederholt, wobei die Dreiecke stets zur selben Seite der Kurve hin zu errichten sind. Auf diese Weise ergibt sich eine Folge von Streckenzügen, die gegen die Koch-Kurve strebt.
+Man kann die Kurve anschaulich mittels eines iterativen Prozesses konstruieren Zu Beginn besteht die Kurve aus einem einzigen Streckenstück. Die Iteration besteht nun darin, daß dieser Streckenabschnitt durch einen anderen, aus vier gleich langen Strecken bestehenden Streckenabschnitt ersetzt wird, der wie folgt aufgebaut ist: Strecke -- 60° Winkel -- Strecke -- 120° Winkel (in der Gegenrichtung) -- Strecke – 60° Winkel -- Strecke. Jeder der vier neuen Streckenabschnitte hat 1/3 der Länge des ursprünglichen Streckenabschnitts. Im nächsten Schritt wird jeder der vier Streckenabschnitte durch einen Streckenabschnitt der oberen Art ersetzt. Diese Iteration wird nun beliebig oft wiederholt, wobei die Dreiecke stets zur selben Seite der Kurve hin zu errichten sind. Auf diese Weise ergibt sich eine Folge von Streckenzügen, die gegen die Koch-Kurve strebt. Im Grenzfall (nach unendlich vielen Iterationen) ist die Kochkurve unendlich lang, da der Streckenzug bei jeder Iteration um den Faktor $$4/3$$ länger wird.
 
 ## Quellcode
+
+Man kann eine näherungsweise Abbildung sowohl der Kochkurve wie auch der Schneeflocke sehr schön mit Pythons Turtle-Modul visualisieren (siehe obigen Screenshot):
 
 ~~~python
 import turtle as t
@@ -52,6 +54,9 @@ schneeflocke(200, it)
 wn.mainloop()
 ~~~
 
+Die Kochkurve wird spätestems seit Mandelbrot zur Simulation von Küstenlinien herangezogen. Und so ist die Kochsche Schneeflocke oder Insel auch ein Beispiel für ein Fläche mit einem endlichen Flächeninhalt aber einer unendlich langen Begrenzug.
+
+Die Kochsche Insel oder Schneeflocke ist im Gegensatz zur Kochkurve **nicht** selbstähnlich.
 
 ## Literatur
 
