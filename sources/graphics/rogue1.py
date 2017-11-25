@@ -5,10 +5,6 @@ WIDTH = 640
 HEIGHT = 320
 STEP = 32
 
-def legalMove(dx, dy):
-    # TODO: Hier muß die Collisions Detection hin
-    return True
-
 def main():
     win = g.GraphWin("Rogue 1", WIDTH, HEIGHT)
     win.setBackground(g.color_rgb(200, 200, 200))
@@ -32,8 +28,14 @@ def main():
             dy = STEP
         elif key == "Escape":
             gameOn = False
-        if legalMove(dx, dy):
-            rogue.move(dx, dy)
+            
+        print(rogue.getAnchor())
+        
+        if rogue.getAnchor().x = 16:
+            dx = 0
+
+        rogue.move(dx, dy)
+        
 
 if __name__ == "__main__":
     main()
