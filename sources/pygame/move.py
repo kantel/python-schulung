@@ -6,6 +6,7 @@ http://simpson.edu/computer-science/
 """
  
 import pygame
+from pygame.locals import *
  
 # Define some colors
 BLACK = (0, 0, 0)
