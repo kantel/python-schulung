@@ -10,6 +10,10 @@ hexi = t.Turtle()
 hexi.pensize(2)
 hexi.pencolor(253, 141, 60)
 
+hexi.penup()
+hexi.goto(-62, -87)  # Hexagon im Fenster »einmitten«
+hexi.pendown()
+
 hexi.seth(0)
 hexi.fd(100)
 hexi.seth(60)
