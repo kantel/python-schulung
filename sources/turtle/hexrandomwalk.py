@@ -15,7 +15,7 @@ hexi.pensize(2)
 for step in range(1000):
     if step < 200:
         hexi.pencolor(255, 255, 178)
-    elif step < 200:
+    elif step < 400:
         hexi.pencolor(254, 204, 92)
     elif step < 600:
         hexi.pencolor(253, 141, 60)
