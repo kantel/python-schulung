@@ -404,7 +404,7 @@ Auch *pandas* setzt auf *numpy* auf.
 # Warum Anaconda-Python?
 
 - Anaconda-Python ist eine Python-Distribution, die nahezu den gesamten wissenschaftlichen Stack mitliefert
-- Anaconda-Python installiert sich pro Netzer und läßt das System-Python unberührt
+- Anaconda-Python installiert sich pro Nutzer und läßt das System-Python unberührt
 - zusätzliche Pakete lassen sich mit dem eigenen Paketmanager `conda` nachrüsten
 
 ---
@@ -483,3 +483,145 @@ Mir persönlich sind IDEs zu schwerfällig, aber auch das ist eine Geschmacksfra
 # TextMate-Anpassungen
 
 ![TM_PYTHON](images/pythonpath.png)
+
+---
+
+## Dann wollen wir mal loslegen
+
+~~~python
+import turtle
+
+wn = turtle.Screen()
+alex = turtle.Turtle()
+
+alex.forward(50)
+alex.left(90)
+alex.forward(50)
+
+wn.mainloop()
+~~~
+
+---
+## Ein komplexeres Beispiel
+
+~~~python
+import turtle as t
+
+wn = t.Screen()
+wn.colormode(255)
+wn.bgcolor(43, 62, 80)
+wn.setup(width = 600, height = 600)
+wn.title("Ein Hexagon mit der Schildkröte")
+
+hexi = t.Turtle()
+hexi.pensize(2)
+hexi.pencolor(253, 141, 60)
+
+hexi.penup()
+hexi.goto(-62, -87)  # Hexagon im Fenster »einmitten«
+hexi.pendown()
+
+~~~~
+
+---
+
+~~~python
+
+hexi.forward(100)
+hexi.left(60)
+hexi.forward(100)
+hexi.left(60)
+hexi.forward(100)
+hexi.left(60)
+hexi.forward(100)
+hexi.left(60)
+hexi.forward(100)
+hexi.left(60)
+hexi.fd(100)
+hexi.left(60)
+
+
+wn.mainloop()
+
+~~~
+
+---
+
+## Und jetzt mit `for`-Schleife
+~~~python
+import turtle as t
+
+wn = t.Screen()
+wn.colormode(255)
+wn.bgcolor(43, 62, 80)
+wn.setup(width = 600, height = 600)
+wn.title("Ein Hexagon mit der Schildkröte und for-Schleife")
+
+hexi = t.Turtle()
+hexi.pensize(2)
+hexi.pencolor(253, 141, 60)
+
+hexi.penup()
+hexi.goto(-62, -87)  # Hexagon im Fenster »einmitten«
+hexi.pendown()
+
+~~~~
+
+---
+
+~~~python
+
+for i in range(6):
+    hexi.forward(100)
+    hexi.left(60)
+
+wn.mainloop()
+
+~~~
+
+---
+
+## Und zum Abschluß noch mit zwei Schildkröten
+
+~~~python
+import turtle as t
+
+wn = t.Screen()
+wn.colormode(255)
+wn.bgcolor(43, 62, 80)
+wn.setup(width = 600, height = 600)
+wn.title("Hexagon-Schleife")
+
+hexi = t.Turtle()
+hexi.pensize(2)
+hexi.pencolor(253, 141, 60)
+hexa = t.Turtle()
+hexa.pensize(2)
+hexa.pencolor(240, 59, 32)
+~~~~
+
+---
+
+~~~python
+hexi.penup()
+hexi.goto(75, 0)
+hexi.pendown()
+
+hexa.penup()
+hexa.goto(-25, 0)
+hexa.pendown()
+
+for i in range(6):
+    hexi.rt(60)
+    hexi.fd(100)
+    hexa.lt(60)
+    hexa.fd(100)
+
+wn.mainloop()
+~~~
+
+---
+
+# Fragen?
+## Dann bis nächste Woche …
+
