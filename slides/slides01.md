@@ -5,7 +5,9 @@
 
 # Python für absolute Anfänger
 
-(cc) 2017 by Jörg Kantel
+## (Ein Crash-Kurs)
+
+(cc) 2018 by Jörg Kantel
 
 ---
 
@@ -62,7 +64,7 @@ print(u"Hallo Jörg!")
 
 # Aber … (die Nachteile von Python)
 
-- Die Vielzahl der vorhandenen Bibliothekn verwirrt manchmal (entgegen dem *Zen of Python* gibt es für viele Probleme unterschiedliche Lösungen/Bibliotheken
+- Die Vielzahl der vorhandenen Bibliotheken verwirrt manchmal (entgegen dem *Zen of Python* gibt es für viele Probleme unterschiedliche Lösungen/Bibliotheken
 - Der (unnötige) Bruch zwischen Python 2.7 und Python 3 hat die Community gespalten
 - Python ist (nach heutigen Maßstäben) langsam (das kann aber durch in C oder FORTRAN geschriebene Bibliotheken kompensiert werden)
 
@@ -73,6 +75,8 @@ print(u"Hallo Jörg!")
 
 ![Python-Pulli](images/pythonpulli.jpg)
 
+
+
 ---
 
 # Warum sollte man Python lernen (2)?
@@ -80,6 +84,23 @@ print(u"Hallo Jörg!")
 - (C)Python ist plattformübergreifend (macOS, Windows, Linux, RaspberryPi, Android (aber kein iOS)
 - Python ist vielseitig (wissenschaftliches Rechnen, Web-Entwicklung, Spiele und Simulationen etc.)
 - Die Programmierung mit Python macht Spaß
+- Und *last but not least*: Lernt programmieren, sonst werdet Ihr programmiert!
+
+---
+
+# Was macht Python besonders aus?
+
+- Python kann interaktiv im Interpreter programmiert werden (REPL: *Read - Eval - Print - Loop*)
+- Die Typverwaltung ist *dynamisch* (das heißt der Datentyp muß nicht **vor** der ersten Nutzung vereinbart werden
+
+---
+
+<div style="float:right"><img src="images/quack.jpg"></div>
+
+- Bei der Typ-Erkennung geht Python nach dem **Duck-Typing**-Prinzip vor: Wenn es quackt wie eine Ente und watschelt wie eine Ente, dann ist es eine Ente
+- In Python ist alles ein **Objekt**
+- Variabeln sind per Default nur **lokal** gültig
+- Blöcke werden durch **Einrückungen** und nicht durch Klammern gekennzeichnet
 
 ---
 
@@ -90,6 +111,10 @@ import this
 ~~~
 
 ![The Zen of Python](images/zenofpython.png)
+
+---
+
+![Snakefight](images/snakefight1857.png)
 
 ---
 
@@ -116,7 +141,7 @@ import this
 
 **Python 2.7**
 
-- Wenn es nicht anders geht (zum Beispiel PyGame oder NodeBox einsetzen möchte)
+- Wenn es nicht anders geht (wenn man zum Beispiel PyGame oder NodeBox einsetzen möchte)
 - Jython! (dazu später mehr)
 - Wenn man auf einen Fundus von Bibliotheken (speziell zu Netzwerken) zurückgreifen muß
 - Wenn man Python 2.7 liebt (und die Neuerungen in Python 3 nicht mag)
@@ -141,6 +166,7 @@ import this
 - Stackless Python
 - PyPy
 - IronPython und PythonNet
+- Kivy
 
 ---
 
@@ -157,8 +183,27 @@ import this
 - **Jython** ist eine in Java geschriebene Python-Implementierung. Sie ist weitestgehend mit Python 2.7 kompatibel. Naturgemäß funktionieren nicht alle (in C geschriebenen) Bibliotheken
 - Kann mit Java-Bibliotheken verknüpft werden (Swing)
 - Wichtige Implementierungen:
-    - Processing.py
+    - Processing.py (dazu später mehr)
     - TigerJython
+
+---
+
+# TigerJython
+
+- **TigerJython** ist eine plattformübergreifende freie Entwicklungs- und Lernumgebung für Python
+- TigerJython ist in Jython geschrieben, daher Python 2.7
+- TigerJython implementiert die Turtle-Graphik und enthält interessante Module zu Spieleprogrammierung und zu Robotik
+
+![TigerJython Logo](images/tigerjython.png)
+
+---
+
+# Kivy
+
+- **Kivy** ist eine ist ein Python-GUI-Toolkit zur plattformübergreifenden Programmierung grafischer Benutzeroberflächen
+- Kivy stellt eine Bibliothek bereit, um Multitouch-Apps mit *Natural User Interfaces* (NUI) zu entwickeln. Die App kann dann unter Android, iOS, Linux, Mac OS X oder Windows laufen
+- Kivy ist derzeit die einzige Möglichkeit, mit Python iOS-Anwendungen zu entwickeln
+
 ---
 
 # Die anderen
@@ -166,6 +211,15 @@ import this
 - **Stackless Python** ist ein CPython für Multi-Prozessor-Umgebungen
 - **PyPy** ist ein Python geschriebener in Python-Interpreter. Es soll unglaublich schnell sein (nur Python 2.7)
 - **IronPython** und **PythonNet** sind Python-Interpreter für Microsofts .NET-Umgebung. Beide verfolgen aber einen unterschiedlichen Ansatz für die Integration, wobei IronPython die Nase vorne hat
+
+---
+
+# Wo läuft eigentlich überall Python?
+
+- Python ist die interne Skriptsprache in **Blender**
+- **Ren’Py** ist eine Entwicklungsumgebung für *Visual Novels*, die in Python geschrieben wurde und Python als Skriptsprache einsetzt
+- Mit Python können Plugins für die Bildverarbeitungssoftware **GIMP** programiert werden (Python-Fu)
+- usw. usf…
 
 ---
 
@@ -197,9 +251,142 @@ import this
 
 ---
 
-# Nodebox 1
+# NodeBox 1 (1)
 
-![Nodebox 1](images/nodebox01.png)
+![NodeBox 1](images/nodebox01.png)
+
+---
+
+# NodeBox 1 (2)
+
+Die *Knotenschachtel*, wenn auch Mac only, ist eine interesante Alternative, denn
+
+- sie bringt nicht nur ihr eigenes Python (2.7), sondern in der *extended Version* auch NumPy, SciPy, scikit-learn, pandas, NLTK, WordNet und viele andere Bibliotheken mit
+- sie ermöglicht interessante Visualisierungen (besonders, da `matplotlib.animate` auf dem Mac nicht funktioniert)
+
+---
+
+# Wichtige Bibliotheken und Pakete
+
+## Der *Scientific Stack*
+
+- numpy, Scipy und die matplotlib
+- pandas
+- scikit-learn
+- PIL / pillow
+- NLTK
+
+---
+
+# numpy, SciPy und die matplotlib (1)
+
+- **numpy** ist eine Bibliothek für numerische Mathematik
+- Sie ist ein Wrapper um FORTRAN- und C-Bibliotheken wie LAPACK, ODE etc.
+- Sie läuft daher nur mit CPython
+- Sie ermöglicht Vektor- und Matrizen-Operationen ohne Schleifen und ist daher unglaublich schnell
+
+---
+
+## numpy, SciPy und die matplotlib (2)
+
+![SciPy](images/scipy.jpg)
+
+- **SciPy** ist ein auf *numpy* aufsetzendes Paket mit weiteren numerischen Algorithmen (ebenfalls meist auf Basis von FORTRAN- oder C-Bibliotheken)
+
+---
+
+## numpy, SciPy und die matplotlib (3)
+
+- die **matplotlib** ist ein Paket zur (interaktiven) Erstellung von Visualisierungen und Graphen. Auch sie setzt auf *numpy* auf
+
+Diese drei Pakete werden in der Regel zusammen installiert.
+
+---
+
+# pandas (1)
+
+**pandas** ist eine Python-Bibliothek zum Auswerten und Bearbeiten tabellarischer Daten. Sie operiert auf drei Arten von Objekten
+
+- Eine *Serie* entspricht  etwa einer Liste, beispielsweise einer Zeitreihe, einer Liste, einem Dict, oder einem numpy-Array
+- Ein *Dataframe* ist etwas ähnliches wie eine Spreadsheet-Tabelle.
+
+---
+
+# pandas (2)
+- Ein *Panel* besteht aus einer »dreidimensionalen« Tabelle. Die einzelnen Ebenen sind wieder Dataframes
+
+Auch *pandas* setzt auf *numpy* auf.
+
+![pandas-logo](images/pandas-logo.png)
+
+---
+
+# scikit-learn
+
+**scikit-learn** ist eine Python-Bibliothek für maschinelles Lernen. Sie benötigt *numpy* und *SciPy*.
+
+![scikit-learn-Logo](images/scikit-learn-logo.png)
+
+---
+
+# PIL/Pillow
+
+- **PIL** (Python Image Library) ist *die* Bibliothek für Bildverarbeitung und Bildmanipulation in Python (gewissermaßen das *ImageMagick* für Python)
+- PIL läuft leider nur mit Python 2.7 (oder kleiner), daher gibt es mit **Pillow** ein Fork für Python 3, die nahezu funktions- und aufrufidentisch ist
+- PIL/Pillow besitzen auch Funktionen, um Bild-Dateien für das GUI-Toolkit **Tkinter** aufzubereiten
+
+---
+
+# NLTK
+
+- Das **Natural Language Toolkit** (NLTK) ist eine Zusammenstellung von Bibliotheken und Programmen der Programmiersprache Python (ab Version 2.6) für Anwendungen der Computerlinguistik
+- Das NLTK ist quelloffen und wird unter der Apache-Lizenz vertrieben
+- Erst seit einigen Monaten gibt es auch eine Version des NLTK für Python 3
+
+---
+
+## Sonstige wichtige Pakete
+
+- Pyglet und cocos2d (Python)
+- PyGame
+- OpenCV
+- VPython
+
+![PyGame](images/pygamebunt.png)
+
+---
+
+# Pyglet und cocos2d
+
+- **Pyglet** ist eine freie, plattformübergreifende Bibliothek zur Programmierung multimedialer Anwendungen (Audio, Video und Animationen)
+- Pyglet setzt auf *OpenGL* auf
+- **cocos2d** (Python) ist eine auf Pyglet aufsetzende Bibliothek zur Spieleprogrammierung 
+
+---
+
+# PyGame
+
+- **PyGame** ist ebenfalls eine plattformübergreifende Python-Bibliothek zur Spieleprogrammierung und so etwas wie die Standard-Bibliothek für Spiele und Simualtionen in Python (2D und 3D)
+- PyGame ist ein *Wrapper* für das in C geschriebene  SDL *(Simple Direct Layer)*, das heißt, die Installation ist etwas haarig
+- PyGame funktioniert nicht vernünftig mit Python&nbsp;3 (Ausnahme: Raspberry Pi), aber problemlos mit Python 2.7
+
+---
+
+# OpenCV
+
+- Python besitzt *Bindings* zu **OpenCV** *(Open Source Computer Vision)*, einer Bibliothek zur Bild- und Video-Bearbeitung in Echtzeit
+- OpenCV ist in C++ geschrieben, das heißt auch hier ist die Installation nicht einfach
+- OpenCV ist so etwas wie **der** Standard für die Bildanalyse und Bilderkennung (zum Beispiel Gesichtserkennung)
+
+---
+
+# VPython
+
+- **VPython** ist eine Python-Entwicklungsumgebung für 3D-Simulationen
+- VPython besteht aus einem Python-Interpreter und einem 3D-Graphik-Modula namens *Visual*
+- Visual ist in C++ geschrieben
+- VPython ist *cross platform* und Open-Source
+- Es gibt VPython für Python 2.7 und Python 3 (?)
 
 ---
 
@@ -211,6 +398,14 @@ import this
 - Das System-Python wird auch vom OS genutzt
 - Daher besser nicht anrühren
 - Anaconda-Python ist die Lösung für (fast) alles
+
+---
+
+# Warum Anaconda-Python?
+
+- Anaconda-Python ist eine Python-Distribution, die nahezu den gesamten wissenschaftlichen Stack mitliefert
+- Anaconda-Python installiert sich pro Netzer und läßt das System-Python unberührt
+- zusätzliche Pakete lassen sich mit dem eigenen Paketmanager `conda` nachrüsten
 
 ---
 
@@ -226,7 +421,7 @@ import this
 
 - `python` im Terminal oder iTerm aufrufen
 - `ipython` im Terminal oder iTerm aufrufen
-- IDLE (ist bei jeder Python-Distribution dabei)
+- **IDLE** (ist bei jeder Python-Distribution dabei)
 - Fast jede IDE hat auch einen Interpreter eingebaut
 - Der Interpreter wird mit `exit()` verlassen
 
