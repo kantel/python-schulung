@@ -12,10 +12,36 @@
 
 ---
 
-## Werte und Typen
+## Ein Nachtrag von letzter Woche
+
+- Mittwoch erreichte mich die Nachricht, daß das neue **JupyterLab** nun – obwohl immer noch beta – Produktionsreife erreicht hat.
+- Obwohl browserbasiert ist JupyterLab eher eine IDE (stark von RStudio beeinflußt) mit Texteditor, Filebrowser, diversen Ausgabefenstern, Interpreter etc.
+- Man hat gar nicht mehr den Eindruck, im Browser zu editieren (editieren zu müssen).
+
+---
+
+![Screenshot JupyterLab](images/jupyterlab.png)
+
+Das könnte was werden!
+
+---
+
+## Und nun zum heutigen Programm
+
+- Werte und Datentypen
+- Variablen und Operatoren
+- Kommentare
+- Funktionen mit und ohne Parameter
+- Boolsche Ausdrücke und logische Operatoren
+- Verzweigungen
+- Schleifen
+
+---
+
+## Werte und Datentypen
 
 - Ein **Wert** ist das grundlegende Ding, mit denen ein Programm arbeitet, etwa **Buchstaben** (Zeichenketten) oder **Zahlen**.
-- Diese Werte gehören **Typen** an, Zeichenketten sind vom Typ `string`, Zahlen können zum Beispiel vom Typ `int` (Integer, ganze Zahl) oder `float` (Fließkommazahl) sein.
+- Diese Werte gehören **Datentypen** an, Zeichenketten sind vom Typ `string`, Zahlen können zum Beispiel vom Typ `int` (Integer, ganze Zahl) oder `float` (Fließkommazahl) sein.
 - Mit dem Befehl `type` gibt der Interpreter den Typen aus.
 
 ---
@@ -55,8 +81,8 @@
      print(meldung)
      n = 17
      print(n)
-     pi = 3.14159
-     print(pi)
+     n = 3.14159
+     print(n)
  
  ---
  
@@ -74,6 +100,39 @@
     print(bin)
     
 ---
+
+## Type- Casting
+
+    a = "17"
+    b = int(a) + 4
+    print(b)
+    
+Folgende Casting-Kommandos stehen zur Verfügung:
+
+- `int()` macht aus einem String oder einem Float einen Integer-Wert
+- `float()` macht aus einem String oder einem Integer eine Fließkommazahl
+- `string()` versucht aus allem, was ihm unter die Finger kommt, eine Zeichenkette zu machen
+
+---
+
+#### Beispiele
+    a = 17
+    b = float(a) + 2
+    print(b)
+
+Hier greift das *Duck-Typing*, aus `2` wird ein *float*.
+
+    a = "4711"
+    b = int(a)*2
+    print(b)
+
+Aber:
+
+    a = "4711"
+    b = a*2
+    print(b)
+
+---
  
 ## Gültige Variablennamen
 
@@ -88,10 +147,10 @@ Ein **Bezeichner** in Python ist ein Name um Variablen, Module, Klassen, Funktio
 
 - **Groß- und Kleinschreibung** zählt, das heißt `myNumber`und `Mynumber` sind verschiedene Namen.
 
-- Seit Python 3 wird **Unicode** unterstützt. Somit kann der Bezeichner auch Unicode-Zeichen enthalten. Die Länge eines Bezeichners ist nicht begrenzt. Das heißt, das dies gültige Bezeichner sind:
+- Seit Python 3 wird **Unicode** unterstützt. Somit kann der Bezeichner auch Unicode-Zeichen enthalten. Die Länge eines Bezeichners ist nicht begrenzt. Das heißt, daß dies gültige Bezeichner sind:
 
 
-    maximum_height = 100
+    maximum_height_from_january_1920_to_december_2017 = 100
     υψος = 10
     μεγιστη_υψος = 100
 
@@ -254,6 +313,10 @@ Innerhalb einer Funktion sind Variablen und Paramter **lokal**:
     add_number(my_supernumber)
     print("But my Supernumber is still ", my_supernumber)
 
+**Anmerkung**
+
+- `x += n` ist eine Abkürtzung für `x = x + n`.
+- Das gilt auch für `x -= n`,  `x *= n` und `x /= n`.
 
 ---
 
@@ -266,7 +329,9 @@ Innerhalb einer Funktion sind Variablen und Paramter **lokal**:
     y = double(x)
     print(y)
 
-`return()` ist die Schlüsselfunktion!
+- `return()` ist die Schlüsselfunktion!
+- Ähnlich wie `print` konnte in Python 2.x auch `return` ohne Klammern aufgerufen werden.
+
 
 ---
 
@@ -299,7 +364,7 @@ Auch wenn Ihr das häufig in der Literatur seht, das verschmutzt nur den Namensr
     
     alex = t.Turtle()
     
-    # Hier kommt jetzt Euer programm-Code hin
+    # Hier kommt jetzt Euer Programm-Code hin
     
     wn.mainloop()
 
@@ -465,6 +530,36 @@ Die `while`-Schleife ist eigentlich die einzige Schleife, die man braucht. Beisp
 
 ---
 
+## Die Endlos-Schleife
+
+    while True:
+        print("From here to internity")
+        # Hektische Suche nach dem Kill-Befehl
+
+Die Endlos-Schleife ist aber nicht immer ein Programmfehler, sie wird zum Beispiel benutzt
+
+- bei einem Server (der soll schließlich »immer« laufen)
+- bei GUIs und/oder Spielen (warte auf Benutzer-Eingaben)
+
+---
+
+## Callback (Ruf uns nicht an, wir rufen zurück)
+
+    def exit_prog():
+        global keepGoing
+        keepGoing = False
+    
+    t.listen()
+    t.onkey(exit_prog, "Escape") # Escape beendet Programm
+    
+    keepGoing = True
+    while keepGoing:
+        pass  # Mache irgendetwas
+
+(Beispielprogramm: `particle1.py` in `turtlepy`.)
+        
+---
+
 ## Die `for`-Schleife
 
 Python kennt noch die `for`-Schleife:
@@ -472,12 +567,86 @@ Python kennt noch die `for`-Schleife:
     for i in range(10):
         print(i)
 
+Der Endwert ist »exklusiv« (mathematisch gesprochen wird das halboffene Intervall `[0 … 10[` abgearbeitet, das heißt die Schleife zählt von Null bis Neun.
+ 
+---
+
 Die `for`-Schleife kann natürlich auch rückwärts zählen:
 
     for i in range(10, 0, -1):
         print(i)
 
-Beachtet dabei, daß der Endwert exklusiv ist, die Schleife also von 10 bis 1 rückwärts zählt.
+- Beachtet dabei, daß auch hier der Endwert exklusiv ist, die Schleife also von 10 bis 1 rückwärts zählt.
+- Es gibt auch noch eine Abwandlung der `for`-Schleife für Strings und Listen. Dazu später mehr.
+
+---
+
+## Die `range()`-Funktion
+
+    for identifier in range([start, ] stop [, step])
+
+Dabei gilt:
+
+- Alle Parameter sind Integer
+- Alle Parameter können positiv oder negativ sein
+- Wie alles in Python beginnt der Index mit `0`, daher ist der Stop-Wert »exklusiv«:
+
+
+    for i in range(5, 10):
+        print i
+
+---
+
+## Die `range()`-Funktion (2)
+
+In Python 2.x gab es noch eine `xrange()`-Funktion. Der Unterschied war:
+
+- `range()` gab als Ergebnis eine Liste zurück
+- `xrange()` gab als Ergebnis einen `iterator` zurück
+
+In Python 3 wurde `xrange()` zu `range()`  und das originale `range()` als veraltet erklärt *(deprecated)*, das heißt `range()` liefert nun immmer einen `iterator` zurück.
+
+---
+
+## Das war es mit den Grundlagen
+
+Ihr kennt nun die grundlegenden Abläufe eines Programms:
+
+- Sequenzen (werden von oben nach unten abgearbeitet)
+- Verzweigung (entweder dies oder das)
+- Schleifen (Mehrfachdurchläufe)
+
+---
+
+## Das war es mit den Grundlagen (2)
+
+Und die wichtigsten einfachen Datentypen:
+
+- Zahlen (Integer und Float)
+- Zeichenketten in ihrer einfachsten Form (sie werden noch einmal bei den Datenstrukturen behandelt)
+- Boolsche Werte und Ausdrücke
+
+Somit seid Ihr in der Lage, einfache Python-Programme selber zu schreiben. 😎
+
+---
+
+## Ausblick auf Modul 3
+
+Hier geht es um Datenstrukturen:
+
+- Strings (noch einmal, denn Zeichenketten sind sowohl Datentypen wie auch Datenstrukturen)
+- Dateien (Lesen und Schreiben, Text, JSON, XML, CSV)
+- Listen (die wichtigsten Datentypen in Python überhaupt)
+- Dictionairies (Hash-Tables)
+- Tupel
+
+---
+
+# Fragen?
+
+
+
+
     
 
     
