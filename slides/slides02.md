@@ -298,6 +298,35 @@ Und versucht dann folgendes:
     print_twice(127)
     import math
     print_twice(math.pi)
+    
+---
+
+### Funktionen mit mehreren Parametern
+
+    def mult3(a, b, c):
+        ergebnis = a*b*c
+        print("Die Multiplikation ergibt: ", ergebnis)
+    
+    mult3(2, 3, 4)
+Oder:
+
+    def mult_word(s, a):
+        print(s*a)
+    
+    mult_word("SPAM", 3)
+
+---
+
+### Funktionen mit optionalen Parametern
+
+    def print_vektor(x, y, z=0):
+        if z == 0:
+            print(x, y)
+        else:
+            print(x, y, z)
+    
+    print_vektor(3, 5)
+    print_vektor(6, 6, 6)
 
 ---
 
