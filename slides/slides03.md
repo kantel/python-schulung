@@ -12,34 +12,6 @@
 
 ---
 
-### Zur Auflockerung noch einmal die Schildkröte
-
-Wie wäre es mit einem Polygon?
-
-    def polygon(t, n, length):
-        angle = 360.0/n
-        for i in range(n):
-            t.forward(length)
-            t.left(angle)
-        
-    polygon(alex, 7, 70)
-
-
----
-
-Oder mit einem Kreis?
-
-    import math
-    
-    def circle(t, r):
-        circum = 2*math.pi*r
-        # n = 50
-        n = int(circum/3) + 1
-        length = circum/n
-        polygon(t, n, length)
-
-
----
 
 ## Woraus besteht ein Programm?
 
@@ -236,6 +208,34 @@ In Python 3 wurde `xrange()` zu `range()`  und das originale `range()` als veral
 
 ---
 
+### Zur Auflockerung noch einmal die Schildkröte
+
+Wie wäre es mit einem Polygon?
+
+    def polygon(t, n, length):
+        angle = 360.0/n
+        for i in range(n):
+            t.forward(length)
+            t.left(angle)
+        
+    polygon(alex, 7, 70)
+
+
+---
+
+Oder mit einem Kreis?
+
+    import math
+    
+    def circle(t, r):
+        circum = 2*math.pi*r
+        # n = 50
+        n = int(circum/3) + 1
+        length = circum/n
+        polygon(t, n, length)
+
+---
+
 ### Komplexe Datentypen und Strukturen
 
 - Strings (noch einmal)
@@ -263,7 +263,7 @@ Der Indexwert kann berechnet werden, muß aber immer ein `Integer`-Wert sein.
     frucht = "Banane"
     print(len(frucht))
  
- Aber das gibt einen Fehler:
+ Aber dieses ergibt einen Fehler:
  
      laenge = len(frucht)
      letzter_buchstabe = frucht[laenge]
@@ -582,7 +582,7 @@ Schreibt man folgende Schleife:
     
     for i in range(len(fruits)):
     if fruits[i] == "Banana":
-        fruits.pop()
+        fruits.pop(i)
 
 Dann erhält man den Fehler: `IndexError: 'list index out of range'`
 
