@@ -133,7 +133,7 @@ Die `while`-Schleife ist eigentlich die einzige Schleife, die man braucht. Beisp
 ## Die Endlos-Schleife
 
     while True:
-        print("From here to internity")
+        print("From Here to Eternity")
         # Hektische Suche nach dem Kill-Befehl
 
 Die Endlos-Schleife ist aber nicht immer ein Programmfehler, sie wird zum Beispiel benutzt
