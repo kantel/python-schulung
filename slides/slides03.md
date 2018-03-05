@@ -122,7 +122,7 @@ Die `while`-Schleife ist eigentlich die einzige Schleife, die man braucht. Beisp
         while n > 0:
             print(n)
             n -= 1
-        print(""Whammm … 💥💥💥!!")
+        print("Whammm … 💥💥💥!!")
     
     countdown(10)
 
