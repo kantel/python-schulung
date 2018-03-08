@@ -293,6 +293,7 @@ Der Indexwert kann berechnet werden, muß aber immer ein `Integer`-Wert sein.
 
 In Robert McCloskeys Buch *[Make Way for Ducklings](https://de.wikipedia.org/wiki/Make_Way_for_Ducklings)* gibt es Entchen mit den Namen Jack, Kack, Lack, Mack, Nack, Ouack, Pack und Quack:
 
+    suffix = "ack"
     praefixe = "JKLMNOPQ"
     for praefix in praefixe:
         if praefix == "O" or praefix == "Q":
@@ -595,7 +596,7 @@ Daher sollte man in diesen (und ähnlichen Fällen) Listen besser rückwärts du
 
 	for i in range(len(fruits) - 1, -1, -1):
     	if fruits[i] == "Banana":
-        	fruits.pop(i)
+        	    fruits.pop(i)
     
 	print(fruits)
  

@@ -8,6 +8,6 @@ wn.title("Ein Super-Duper Turtle-Programm")
 
 alex = t.Turtle()
 
-# Hier kommt jetzt Euer programm-Code hin
+# Hier kommt jetzt Euer Programm-Code hin
 
 wn.mainloop()
