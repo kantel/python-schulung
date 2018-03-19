@@ -1,5 +1,5 @@
 import os
-# print(os.getcwd())
+print(os.getcwd())
 
 fd = open("kant.txt")
 content = fd.read()
