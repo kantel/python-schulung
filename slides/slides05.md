@@ -255,6 +255,43 @@ JSON-Daten werden beim Laden in Dicitionaries umformatiert. Daher gibt es keine 
 
 ---
 
+### Bild-Dateien lesen und schreiben
+
+![](images/joey01.png)
+
+---
+
+- Für das Lesen, Schreiben und Bearbeiten von Bildern ist in Python die Python Image Library (**PIL**) zuständig. Diese funktioniert aber leider nur bis Python 2.7, aber nicht mehr mit Python 3.
+
+- Es gibt aber eine aufrufkompatible Fork namens **Pillow**, die meines Wissens bei Anaconda-Python schon mitgeliefert ist.
+- PIL/Pillow besitzt eine Menge von Funktionen und Filtern zur Bildmanipulation und -bearbeitung.
+
+---
+
+Der Aufruf von PIL/Pillow ist einfach:
+
+```python
+from PIL import Image
+
+im = Image.open("joey.jpg")
+im.show()
+```
+
+Das Laden von Bildern geht manchmal schief, daher ist auch hier eine `try/except`-Behandlung sinnvoll:
+
+```python
+from PIL import Image
+
+try:
+    im = Image.open("joey.jpg")
+except:
+    print("Konnte das verdammt Bild nicht laden!")
+
+im.show()
+```
+
+---
+
 ### Objektorientierte Programmierung
 
 Python ist eine **objektorientiert** Programmiersprache.
