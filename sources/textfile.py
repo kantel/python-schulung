@@ -12,3 +12,5 @@ fout.close()
 fapp = open("file2.txt", "a")
 content = fapp.write("Alles neu mächt der Mai!\n")
 fapp.close()
+
+print(content)
