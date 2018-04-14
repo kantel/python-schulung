@@ -132,7 +132,6 @@ class Invader(Sprite):
             self.hideturtle()
             print("Game Over!")
             # keepGoing = False
-    
 
 # Initialisierung
 
