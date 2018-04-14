@@ -1,4 +1,4 @@
-# Space Invaders Stage 3: Die Klasse Sprite und den Spieler hinzufügen
+# Space Invaders Stage 4: Die Klasse Enemy mit einem Gegner hinzufügen
 
 import turtle as t
 
@@ -62,12 +62,31 @@ class Actor(Sprite):
             self.x = WW/2 - 20
         self.setx(self.x)
 
+class Invader(Sprite):
+    
+    def __init__(self, tshape, tcolor):
+        Sprite.__init__(self, tshape, tcolor)
+        self.color = tcolor
+        self.speed = 2
+        self.x = -200
+        self.y = 250
+        self.goto(self.x, self.y)
+    
+    def move(self):
+        self.x += self.speed
+        if self.x >= WW/2 - 20 or self.x <= -WW/2 + 20:
+            self.y -= 40
+            self.sety(self.y)
+            self.speed *= -1
+        self.setx(self.x)
+    
+
 # Initialisierung
 
 wn = t.Screen()
 wn.bgcolor("#000000")
 wn.setup(width = WIDTH, height = HEIGHT)
-wn.title("Space Invaders – Stage 3")
+wn.title("Space Invaders – Stage 4")
 
 # Bildschirm-Refresh ausschalten
 wn.tracer(0)
@@ -80,6 +99,7 @@ def exitGame():
 world = GameWorld()
 world.draw_border()
 player = Actor("triangle", "purple")
+enemy = Invader("circle", "green")
 
 # Auf Tastaturereignisse lauschen
 t.listen()
@@ -90,3 +110,5 @@ t.onkey(exitGame, "Escape") # Escape beendet das Spiel
 keepGoing = True
 while keepGoing:
     wn.update()  # Bildschirm-Refresh einschalten und den gesamten Bildschirm neuzeichnen
+    
+    enemy.move()
