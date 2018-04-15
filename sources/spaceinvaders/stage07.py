@@ -21,6 +21,7 @@ class GameWorld(t.Turtle):
         self.speed(0)
         self.color("white")
         self.pensize(3)
+        self.keepGoing = True
     
     def draw_border(self):
         self.penup()
@@ -29,6 +30,10 @@ class GameWorld(t.Turtle):
         for i in range(4):
             self.forward(WW)
             self.left(90)
+
+    def exit_game(self):
+        self.keepGoing = False
+
 
 class HeadUpDisplay(t.Turtle):
     

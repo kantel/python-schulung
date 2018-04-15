@@ -20,6 +20,7 @@ class GameWorld(t.Turtle):
         self.speed(0)
         self.color("white")
         self.pensize(3)
+        self.keepGoing = True
     
     def draw_border(self):
         self.penup()
@@ -28,6 +29,9 @@ class GameWorld(t.Turtle):
         for i in range(4):
             self.forward(WW)
             self.left(90)
+
+    def exit_game(self):
+        self.keepGoing = False
 
 
 # Initialisierung
@@ -40,9 +44,6 @@ wn.title("Space Invaders – Stage 2")
 # Bildschirm-Refresh ausschalten
 wn.tracer(0)
 
-def exitGame():
-    global keepGoing
-    keepGoing = False
 
 # Objekte initialisieren
 world = GameWorld()
@@ -50,8 +51,8 @@ world.draw_border()
 
 # Auf Tastaturereignisse lauschen
 t.listen()
-t.onkey(exitGame, "Escape") # Escape beendet das Spiel
+t.onkey(world.exit_game, "Escape") # Escape beendet das Spiel
 
-keepGoing = True
-while keepGoing:
+
+while world.keepGoing:
     wn.update()  # Bildschirm-Refresh einschalten und den gesamten Bildschirm neuzeichnen
