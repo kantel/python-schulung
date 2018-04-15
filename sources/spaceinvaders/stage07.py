@@ -34,7 +34,6 @@ class GameWorld(t.Turtle):
     def exit_game(self):
         self.keepGoing = False
 
-
 class HeadUpDisplay(t.Turtle):
     
     def __init__(self):
@@ -54,7 +53,6 @@ class HeadUpDisplay(t.Turtle):
     def change_score(self, points):
         self.score += points
         self.update_score()
-
 
 class Sprite(t.Turtle):
     
@@ -125,16 +123,6 @@ class Bullet(Sprite):
         if self.ycor() >= WH/2 - 20:
             self.hideturtle()
             self.state = "ready"
-        if self.collides_with(enemy):
-            hud.change_score(10)
-            self.hideturtle()
-            self.state = "ready"
-            self.setposition(-4000, -4000)
-            enemy.x = -200
-            enemy.y = 250
-            enemy.speed = 2
-            enemy.goto(enemy.x, enemy.y)
-
 
 class Invader(Sprite):
     
@@ -147,18 +135,18 @@ class Invader(Sprite):
         self.goto(self.x, self.y)
     
     def move(self):
-        global keepGoing
         self.x += self.speed
         if self.x >= WW/2 - 20 or self.x <= -WW/2 + 20:
             self.y -= 40
             self.sety(self.y)
             self.speed *= -1
         self.setx(self.x)
-        if self.collides_with(player):
-            player.hideturtle()
-            self.hideturtle()
-            print("Game Over!")
-            # keepGoing = False
+
+    def jump(self):
+        self.x = -200
+        self.y = 250
+        self.speed = 2
+        self.goto(self.x, self.y)
 
 # Initialisierung
 
@@ -170,14 +158,11 @@ wn.title("Space Invaders – Stage 7")
 # Bildschirm-Refresh ausschalten
 wn.tracer(0)
 
-def exitGame():
-    global keepGoing
-    keepGoing = False
-
 # Objekte initialisieren
 world = GameWorld()
 world.draw_border()
 hud = HeadUpDisplay()
+hud.change_score(0)
 player = Actor("triangle", "purple")
 missile = Bullet("triangle", "yellow")
 enemy = Invader("circle", "green")
@@ -187,12 +172,22 @@ t.listen()
 t.onkey(player.go_left, "Left")
 t.onkey(player.go_right, "Right")
 t.onkey(missile.fire, "space")
-t.onkey(exitGame, "Escape") # Escape beendet das Spiel
+t.onkey(world.exit_game, "Escape") # Escape beendet das Spiel
 
-keepGoing = True
-while keepGoing:
+while world.keepGoing:
     wn.update()  # Bildschirm-Refresh einschalten und den gesamten Bildschirm neuzeichnen
     
     enemy.move()
+    if enemy.collides_with(player):
+        enemy.hideturtle()
+        player.hideturtle()
+        print("Game Over!")
+        world.keepGoing = False
+    
     missile.move()
-    hud.change_score(0)
+    if missile.collides_with(enemy):
+            missile.hideturtle()
+            missile.state = "ready"
+            missile.setposition(-4000, -4000)
+            enemy.jump()
+            hud.change_score(10)

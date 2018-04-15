@@ -104,15 +104,6 @@ class Bullet(Sprite):
         if self.ycor() >= WH/2 - 20:
             self.hideturtle()
             self.state = "ready"
-        if self.collides_with(enemy):
-            self.hideturtle()
-            self.state = "ready"
-            self.setposition(-4000, -4000)
-            enemy.x = -200
-            enemy.y = 250
-            enemy.speed = 2
-            enemy.goto(enemy.x, enemy.y)
-
 
 class Invader(Sprite):
     
@@ -121,22 +112,22 @@ class Invader(Sprite):
         self.color = tcolor
         self.speed = 2
         self.x = -200
-        self.y = 250
+        self.y = -250
         self.goto(self.x, self.y)
     
     def move(self):
-        global keepGoing
         self.x += self.speed
         if self.x >= WW/2 - 20 or self.x <= -WW/2 + 20:
             self.y -= 40
             self.sety(self.y)
             self.speed *= -1
         self.setx(self.x)
-        if self.collides_with(player):
-            player.hideturtle()
-            self.hideturtle()
-            print("Game Over!")
-            # keepGoing = False
+
+    def jump(self):
+        self.x = -200
+        self.y = 250
+        self.speed = 2
+        self.goto(self.x, self.y)
 
 # Initialisierung
 
@@ -166,4 +157,16 @@ while world.keepGoing:
     wn.update()  # Bildschirm-Refresh einschalten und den gesamten Bildschirm neuzeichnen
     
     enemy.move()
+    if enemy.collides_with(player):
+        enemy.hideturtle()
+        player.hideturtle()
+        print("Game Over!")
+        world.keepGoing = False
+    
     missile.move()
+    if missile.collides_with(enemy):
+            missile.hideturtle()
+            missile.state = "ready"
+            missile.setposition(-4000, -4000)
+            enemy.jump()
+
