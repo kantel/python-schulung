@@ -1,12 +1,10 @@
-# Space Invaders Stage 6: Collision Detection
+# Space Invaders Stage 1: Template für Turtle-Programme
 
 import turtle as t
 import math
 
-# Fenstergröße
 WIDTH = 700
 HEIGHT = 700
-# Weltgröße
 WW = 600
 WH = 600
 
@@ -30,10 +28,9 @@ class GameWorld(t.Turtle):
         for i in range(4):
             self.forward(WW)
             self.left(90)
-
+    
     def exit_game(self):
         self.keepGoing = False
-
 
 class Sprite(t.Turtle):
     
@@ -48,7 +45,7 @@ class Sprite(t.Turtle):
     def collides_with(self, obj):
         a = self.xcor() - obj.xcor()
         b = self.ycor() - obj.ycor()
-        distance =  math.sqrt((a**2) + (b**2))
+        distance = math.sqrt((a**2) + (b**2))
         if distance < 15:
             return True
         else:
@@ -58,30 +55,28 @@ class Actor(Sprite):
     
     def __init__(self, tshape, tcolor):
         Sprite.__init__(self, tshape, tcolor)
-        self.color = tcolor
         self.speed = 10
         self.x = 0
         self.y = -280
         self.setheading(90)
         self.goto(self.x, self.y)
-        
+    
     def go_left(self):
         self.x -= self.speed
         if self.x <= -WW/2 + 20:
             self.x = -WW/2 + 20
         self.setx(self.x)
-
+    
     def go_right(self):
         self.x += self.speed
         if self.x >= WW/2 - 20:
             self.x = WW/2 - 20
         self.setx(self.x)
-
+        
 class Bullet(Sprite):
     
     def __init__(self, tshape, tcolor):
         Sprite.__init__(self, tshape, tcolor)
-        self.color = tcolor
         self.speed = 20
         self.setheading(90)
         self.shapesize(0.3, 0.5)
@@ -101,18 +96,17 @@ class Bullet(Sprite):
             y = self.ycor()
             y += self.speed
             self.sety(y)
-        if self.ycor() >= WH/2 - 20:
+        if self.ycor() >= WW/2 - 20:
             self.hideturtle()
             self.state = "ready"
-
+        
 class Invader(Sprite):
     
     def __init__(self, tshape, tcolor):
         Sprite.__init__(self, tshape, tcolor)
-        self.color = tcolor
         self.speed = 2
         self.x = -200
-        self.y = -200
+        self.y = -250
         self.goto(self.x, self.y)
     
     def move(self):
@@ -122,22 +116,20 @@ class Invader(Sprite):
             self.sety(self.y)
             self.speed *= -1
         self.setx(self.x)
-
+    
     def jump(self):
         self.x = -200
         self.y = 250
         self.speed = 2
         self.goto(self.x, self.y)
+    
 
 # Initialisierung
 
 wn = t.Screen()
 wn.bgcolor("#000000")
 wn.setup(width = WIDTH, height = HEIGHT)
-wn.title("Space Invaders – Stage 6")
-
-# Bildschirm-Refresh ausschalten
-wn.tracer(0)
+wn.title("Space Invaders")
 
 # Objekte initialisieren
 world = GameWorld()
@@ -145,6 +137,10 @@ world.draw_border()
 player = Actor("triangle", "purple")
 missile = Bullet("triangle", "yellow")
 enemy = Invader("circle", "green")
+
+# Bildschirm-Refresh ausschalten
+wn.tracer(0)
+
 
 # Auf Tastaturereignisse lauschen
 t.listen()
@@ -160,13 +156,12 @@ while world.keepGoing:
     if enemy.collides_with(player):
         enemy.hideturtle()
         player.hideturtle()
-        print("Game Over!")
+        print("GameOver")
         world.keepGoing = False
     
     missile.move()
     if missile.collides_with(enemy):
-            missile.hideturtle()
-            missile.state = "ready"
-            missile.setposition(-4000, -4000)
-            enemy.jump()
-
+        missile.hideturtle()
+        missile.state = "ready"
+        missile.setposition(-4000, -4000)
+        enemy.jump()
