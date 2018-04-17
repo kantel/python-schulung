@@ -109,7 +109,7 @@ class Invader(Sprite):
         Sprite.__init__(self, tshape, tcolor)
         self.speed = 2
         self.x = -200
-        self.y = -200
+        self.y = 250
         self.goto(self.x, self.y)
     
     def move(self):
