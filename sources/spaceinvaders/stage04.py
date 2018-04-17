@@ -48,7 +48,6 @@ class Actor(Sprite):
     
     def __init__(self, tshape, tcolor):
         Sprite.__init__(self, tshape, tcolor)
-        self.color = tcolor
         self.speed = 10
         self.x = 0
         self.y = -280
@@ -71,7 +70,6 @@ class Invader(Sprite):
     
     def __init__(self, tshape, tcolor):
         Sprite.__init__(self, tshape, tcolor)
-        self.color = tcolor
         self.speed = 2
         self.x = -200
         self.y = 250

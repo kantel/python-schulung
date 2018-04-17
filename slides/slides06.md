@@ -1,5 +1,7 @@
 # Space Invaders mit Python und der Turtle
 
+[![Screenshot](images/spaceinvaders.jpg)](https://www.flickr.com/photos/schockwellenreiter/26597675517/)
+
 [Space Invaders](https://de.wikipedia.org/wiki/Space_Invaders) ist ein Klassiker in der Geschichte der Computerspiele und erschien erstmals 1978 für Spielekonsolen. In japanischen Spielhallen war es so populär, daß nach kurzer Zeit die 100-Yen-Münzen im ganzen Land knapp wurden.
 
 Die 1979 erschienene Umsetzung des Spiels auf die bis dahin eher schleppend laufende Spielkonsole [Atari 2600](https://de.wikipedia.org/wiki/Atari_2600) brachte den Durchbruch der Videospiele im Heimmarkt.
@@ -134,7 +136,6 @@ class Actor(Sprite):
     
     def __init__(self, tshape, tcolor):
         Sprite.__init__(self, tshape, tcolor)
-        self.color = tcolor
         self.speed = 10
         self.x = 0
         self.y = -280
@@ -179,7 +180,6 @@ class Invader(Sprite):
     
     def __init__(self, tshape, tcolor):
         Sprite.__init__(self, tshape, tcolor)
-        self.color = tcolor
         self.speed = 2
         self.x = -200
         self.y = 250
@@ -205,10 +205,26 @@ while world.keepGoing:
     wn.update()  # Bildschirm-Refresh einschalten und den gesamten Bildschirm neuzeichnen
     enemy.move()
 ```
-Auch die Methode `move()` fragt die Ränder ab. Wird einer der Ränder erreicht, wird die y-Koordinate um 40 Pixel nach unten verschoben. Und eine Richtungsänderung wird einfach mit
+Auch die Methode `move()` fragt die Ränder ab. Im Gegensatz zum Spieler können wir den rechten wie den linken Rand in *einer* mit `or` verknüpften Abfrage prüfen. Wird einer der Ränder erreicht, wird die y-Koordinate um 40 Pixel nach unten verschoben. Und eine Richtungsänderung wird einfach mit
 
 ```python
             self.speed *= -1
 ```
 
 erreicht, da ja bekannt die Multiplikation mit `-1` das Vorzeichen wechselt.
+
+## Stage 5: Eine Rakete für den Spieler
+
+Bislang ist das Spiel noch ziemlich langweilig. Um das zu ändern, werde ich nun eine Rakete für den Spieler hinzufügen. Damit es nicht zu einfach wird, soll diese Rakete immer nur dann abgefeuert werden, wenn gerade keine andere Rakete im Spiel ist. Dafür habe ich erst einmal die Klasse `Bullet` angelegt, die natürlich ebenfalls von `Sprite` erbt.
+
+```python
+class Bullet(Sprite):
+    
+    def __init__(self, tshape, tcolor):
+        Sprite.__init__(self, tshape, tcolor)
+        self.speed = 20
+        self.setheading(90)
+        self.shapesize(0.3, 0.5)
+        self.state = "ready"
+        self.hideturtle()
+```
