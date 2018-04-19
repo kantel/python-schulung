@@ -2,6 +2,7 @@
 
 import turtle as t
 import math
+import os
 
 WIDTH = 700
 HEIGHT = 700
@@ -88,7 +89,7 @@ class Actor(Sprite):
         self.goto(self.x, self.y)
         
     def go_left(self):
-        self.x =- self.speed
+        self.x -= self.speed
         if self.x <= -WW/2 + 20:
             self.x = -WW/2 + 20
         self.setx(self.x)
@@ -115,7 +116,7 @@ class Bullet(Sprite):
             self.x = player.xcor()
             self.y = player.ycor() + 10
             self.setposition(self.x, self.y)
-            self.showturtle
+            self.showturtle()
     
     def move(self):
         if self.state == "fire":
@@ -144,7 +145,7 @@ class Invader(Sprite):
         self.setx(self.x)
     
     def jump(self):
-        self.x = -200
+        self.x = -250
         self.y = 250
         self.speed = 2
         self.goto(self.x, self.y)
@@ -155,8 +156,8 @@ wn = t.Screen()
 wn.bgcolor("#000000")
 wn.setup(width = WIDTH, height = HEIGHT)
 wn.title("Space Invaders")
-
-ufo = "ufo.gif"
+ufo = os.path.join(os.getcwd(), "sources/spaceinvaders/ufo.gif")
+# ufo = "ufo.gif"
 wn.register_shape(ufo)
 
 # Bildschirm-Refresh ausschalten
@@ -172,7 +173,7 @@ player = Actor("triangle", "purple")
 missile = Bullet("triangle", "yellow")
 enemies = []
 for i in range(NUMENEMIES):
-    enemies.append(Invader(ufo, "green", -200 + i*40, 250))
+    enemies.append(Invader(ufo, "green", -250 + i*40, 250))
 
 # Auf Tastaturereignisse lauschen
 t.listen()
