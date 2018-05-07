@@ -154,9 +154,9 @@ class Invader(Sprite):
 
 wn = t.Screen()
 wn.bgcolor("#000000")
-#wn.bgcolor("#2b3e50")
-#path_to_bg = os.path.join(os.getcwd(), "sources/spaceinvaders/farback.gif")
-#wn.bgpic(path_to_bg)
+wn.bgcolor("#2b3e50")
+path_to_bg = os.path.join(os.getcwd(), "sources/spaceinvaders/farback.gif")
+wn.bgpic(path_to_bg)
 ufo = os.path.join(os.getcwd(), "sources/spaceinvaders/ufo.gif")
 # ufo = "ufo.gif"
 wn.register_shape(ufo)
